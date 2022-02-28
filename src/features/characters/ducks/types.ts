@@ -1,0 +1,45 @@
+export type FilterLocation = {
+  type?: string
+  name?: string
+  dimension?: string
+}
+
+export type FilterCharacter = {
+    type?: string
+    name?: string
+    status?: string
+    gender?: string
+    species?: string
+}
+
+export type Location = {
+  id: string
+  name: string
+  type: string
+  dimension: string
+  residents: Character[]
+  created: string
+}
+
+export type Episode = {
+  id: string
+  name: string
+  air_date: string
+  episode: string
+  characters: Character[]
+  created: string
+}
+
+export type Character = {
+  id: string
+  name: string
+  status: string
+  species: string
+  type: string
+  gender: string
+  origin: Location
+  location: Location
+  image: string
+  episode: Episode[]
+  created: string
+}

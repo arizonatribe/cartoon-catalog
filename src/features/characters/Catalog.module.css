@@ -1,0 +1,7 @@
+.catalog {
+    background-color: white;
+    display: grid;
+    gap: 0.5em;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
