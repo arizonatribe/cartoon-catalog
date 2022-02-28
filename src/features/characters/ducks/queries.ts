@@ -14,3 +14,35 @@ export const getPageOfCharacters = `
     }
   }
 `;
+
+export const getCharacter = `
+  query getCharacter($id: ID!) {
+    character(id: $id) {
+      id
+      name
+      status
+      species
+      type
+      origin {
+        id
+        name
+        type
+        dimension
+      }
+      location {
+        id
+        name
+        type
+        dimension
+      }
+      image
+      episode {
+        id
+        name
+        air_date
+        episode
+      }
+      created
+    }
+  }
+`;

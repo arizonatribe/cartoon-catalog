@@ -1,5 +1,5 @@
 import { Character } from "./types";
-import { getPageOfCharacters } from "./queries";
+import { getCharacter, getPageOfCharacters } from "./queries";
 
 const config = {
     url: process.env.REACT_APP_RICK_AND_MORTY_API ?? "",
@@ -21,4 +21,18 @@ export async function fetchCharactersByPage(page: number): Promise<Character[]> 
     const result = await response.json();
 
     return (result.data?.characters?.results ?? []) as Character[];
+}
+
+export async function fetchCharacterById(id: string): Promise<Character> {
+    const response = await fetch(config.url, {
+        method: "post",
+        headers: config.baseHeaders,
+        body: JSON.stringify({
+            query: getCharacter,
+            variables: { id }
+        })
+    });
+    const result = await response.json();
+
+    return result.data?.character as Character;
 }

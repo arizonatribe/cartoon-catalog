@@ -1,19 +1,24 @@
 import React from "react";
-import { Character } from "./Character";
-import { Character as CharacterType } from "./ducks";
+import { Card } from "./Card";
+import { Character } from "./ducks";
 import styles from "./Catalog.module.css";
 
 interface Props {
-    characters: CharacterType[]
+    items: Character[]
+    viewDetail(id: string): void
 }
 
 export function Catalog(props: Props) {
-    const { characters } = props;
+    const { items, viewDetail } = props;
 
     return (
         <div className={styles.catalog}>
-            {characters.map((character) => (
-                <Character key={character.id} character={character} />
+            {items.map((item) => (
+                <Card
+                  key={item.id}
+                  data={item}
+                  viewDetail={() => viewDetail(item.id)}
+                />
             ))}
         </div>
     );

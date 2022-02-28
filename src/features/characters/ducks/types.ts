@@ -30,10 +30,10 @@ export type Episode = {
   created: string
 }
 
-export type Character = {
+export interface Character {
   id: string
   name: string
-  status: string
+  status: 'Unknown' | 'Alive' | 'Dead'
   species: string
   type: string
   gender: string
@@ -42,4 +42,8 @@ export type Character = {
   image: string
   episode: Episode[]
   created: string
+}
+
+export interface CharacterFormatted extends Character {
+    statusIcon: "💀" | "❓" | "🧬"
 }

@@ -1,0 +1,57 @@
+.episodes {
+    display: grid;
+    padding: 0.5em 0.4em;
+    grid-area: episodes;
+    width: 100%;
+    justify-content: start;
+    justify-items: start;
+    background-color: white;
+    border-radius: 0.2em;
+    box-shadow: 1px 1px 1px lightgray inset, 1px 1px 1px white;
+    max-height: 6em;
+    overflow-y: auto;
+}
+
+.episode-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 0.4em;
+    align-items: end;
+    padding: 0.2em 0;
+}
+
+.episode-wrapper p {
+    display: block;
+    margin: 0
+}
+
+.episode-name {
+    font-size: 85%;
+}
+
+.episode-number {
+    color: gray;
+    font-size: 75%;
+}
+
+.episode-number::before {
+    content: "( ";
+}
+
+.episode-number::after {
+    content: " ) - ";
+}
+
+.episode-air-date {
+    text-transform: uppercase;
+    align-self: start;
+    font-size: 55%;
+}
+
+.episode-air-date::before {
+    content: "[ ";
+}
+
+.episode-air-date::after {
+    content: " ]";
+}

@@ -1,0 +1,60 @@
+.basic-info {
+    display: grid;
+    grid-area: basic-info;
+    justify-items: start;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "char-name"
+      "char-type";
+}
+
+/* The card has an inlay label */
+.inlay {
+    align-self: end;
+    justify-self: end;
+    background-color: whitesmoke;
+    padding: 0.4em 0.8em 0.5em 0.8em;
+    opacity: 0.9;
+    max-width: 70%;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    border-top-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+    box-shadow: 2px 2px 1px lightgray inset, -1px -1px 1px lightgray inset;
+}
+
+.basic-info p,
+.basic-info h2 {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.basic-info h2 {
+    padding: 0.4em 0;
+}
+
+.basic-info-name {
+    grid-area: char-name;
+    width: 100%;
+    text-shadow: 1px 1px 1px gray;
+}
+
+.basic-info-type {
+    display: grid;
+    grid-area: char-type;
+    grid-template-areas: "type-label type-name";
+    column-gap: 0.5em;
+    align-items: end;
+}
+
+.basic-info-type-label {
+    grid-area: type-label;
+    font-weight: bold;
+}
+
+.basic-info-type-name {
+    grid-area: type-name;
+    font-size: 85%;
+    text-transform: lowercase;
+}

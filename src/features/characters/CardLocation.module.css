@@ -1,0 +1,38 @@
+.location-wrapper {
+    display: grid;
+    padding: 0.5em 0;
+    grid-area: location;
+    grid-template-areas: "location-label . location-name . location-type";
+    grid-template-columns: auto 0.4em auto 0.2em 1fr;
+    align-items: end;
+}
+
+.location-wrapper p {
+    display: block;
+    margin: 0
+}
+
+.location-name {
+    grid-area: location-name;
+    font-size: 85%;
+}
+
+.location-label {
+    grid-area: location-label;
+    font-weight: bold;
+}
+
+.location-type {
+    grid-area: location-type;
+    text-transform: uppercase;
+    align-self: start;
+    font-size: 55%;
+}
+
+.location-type::before {
+    content: "[ ";
+}
+
+.location-type::after {
+    content: " ]";
+}

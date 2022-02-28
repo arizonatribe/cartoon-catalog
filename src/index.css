@@ -2,6 +2,7 @@
     --primary: lightblue;
     --dark-gray: #666;
     --light-gray: #bbb;
+    --dark-gray-rgb: 102, 102, 102;
 }
 
 body {

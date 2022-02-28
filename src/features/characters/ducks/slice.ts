@@ -5,26 +5,26 @@ import {
     createAsyncThunk,
 } from "@reduxjs/toolkit";
 
-import { fetchCharactersByPage } from "./api";
-import { Character } from "./types";
+import { fetchCharactersByPage, fetchCharacterById } from "./api";
+import { Character, FilterCharacter, FilterLocation } from "./types";
 import { RootState, AppThunk } from "../../../app/store";
 
 export const name = "characters";
 
 export interface State {
-    status: 'idle' | 'loading' | 'failed'
+    status: "idle" | "loading" | "failed"
+    detail?: Character
     search: {
-        filter: object,
         page: number,
-        matches: Character[]
+        matches: Character[],
+        filter?: FilterCharacter | FilterLocation
     }
 }
 
 const initialState: State = {
     status: 'idle',
     search: {
-        filter: {},
-        page: 1,
+        page: 0,
         matches: []
     }
 };
@@ -32,6 +32,11 @@ const initialState: State = {
 export const searchCharacters = createAsyncThunk(
     `${name}/searchCharacters`,
     fetchCharactersByPage
+);
+
+export const viewCharacter = createAsyncThunk(
+    `${name}/viewCharacter`,
+    fetchCharacterById
 );
 
 export function nextPageOfCharacters(): AppThunk {
@@ -60,7 +65,10 @@ export const slice = createSlice({
             action.payload.forEach((character: Character) => {
                 state.search.matches.push(character);
             });
-        }
+        },
+        closeDetail(state: State) {
+            state.detail = undefined;
+        },
     },
     extraReducers(builder) {
         builder
@@ -77,10 +85,31 @@ export const slice = createSlice({
                     state.search.matches = action.payload;
                 }
             )
+            .addCase(
+                viewCharacter.pending,
+                (state: State) => {
+                    state.status = "loading";
+                    state.detail = undefined;
+                }
+            )
+            .addCase(
+                viewCharacter.rejected,
+                (state: State) => {
+                    state.status = "failed";
+                    state.detail = undefined;
+                }
+            )
+            .addCase(
+                viewCharacter.fulfilled,
+                (state: State, action: PayloadAction<Character>) => {
+                    state.status = "idle";
+                    state.detail = action.payload;
+                }
+            )
     }
 });
 
-export const { nextPage, prevPage, addCharacters } = slice.actions;
+export const { nextPage, prevPage, addCharacters, closeDetail } = slice.actions;
 export const { reducer } = slice;
 
 /*
@@ -91,3 +120,4 @@ export const { reducer } = slice;
 
 export const selectCharacters = (state: RootState) => state[name].search.matches;
 export const selectCurrentPage = (state: RootState) => state[name].search.page;
+export const selectCharacterDetail = (state: RootState) => state[name].detail;

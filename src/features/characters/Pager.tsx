@@ -15,10 +15,10 @@ export function Pager() {
      */
     const observer = useCallback(
         container => {
-            new IntersectionObserver(characters => {
-                characters
-                    .filter(char => char.intersectionRatio)
-                    .forEach(character => dispatch(nextPageOfCharacters()));
+            new IntersectionObserver(characterSet => {
+                characterSet
+                    .filter(charSet => charSet.intersectionRatio)
+                    .forEach(() => dispatch(nextPageOfCharacters()));
             }).observe(container);
         }, [dispatch]
     );
