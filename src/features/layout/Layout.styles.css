@@ -1,0 +1,35 @@
+.layout {
+    display: grid;
+    grid-template-areas: "header" "main";
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
+
+.with-sidebar {
+    grid-template-areas:
+        "header header"
+        "side main";
+    grid-template-columns: 300px 1fr;
+}
+
+.main {
+    display: grid;
+    grid-area: main;
+    background-color: #282c34;
+    height: 100%;
+}
+
+.header {
+    background-color: white;
+    grid-area: header;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    font-weight: 700;
+}
+
+.side {
+    grid-area: side;
+}
