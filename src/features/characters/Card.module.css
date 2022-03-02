@@ -14,8 +14,8 @@
     grid-area: card-image;
     margin: 0;
     padding: 1px;
-    max-width: 98%;
-    max-height: 98%;
+    max-width: calc(100% - 6px);
+    max-height: calc(100% - 6px);
     border: 1px solid lightgray;
     box-shadow: 1px 1px 5px gray inset;
     border-radius: 0.8em;

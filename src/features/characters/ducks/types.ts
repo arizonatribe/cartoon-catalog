@@ -1,3 +1,8 @@
+export interface Pager {
+    count: number
+    pages: number
+}
+
 export type FilterLocation = {
   type?: string
   name?: string
@@ -10,6 +15,11 @@ export type FilterCharacter = {
     status?: string
     gender?: string
     species?: string
+}
+
+export type FilterEpisode = {
+    name?: string
+    episode?: string
 }
 
 export type Location = {

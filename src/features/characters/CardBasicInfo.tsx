@@ -5,11 +5,12 @@ import styles from "./CardBasicInfo.module.css";
 interface Props {
     name: string
     type: string
+    species?: string
     inlay?: boolean
 }
 
 export function CardBasicInfo(props: Props) {
-    const { name, type, inlay } = props;
+    const { name, type, species, inlay } = props;
 
     const basicInfoStyles = cn({
         [styles["basic-info"]]: true,
@@ -21,7 +22,7 @@ export function CardBasicInfo(props: Props) {
             <h2 className={styles["basic-info-name"]}>{name}</h2>
             <div className={styles["basic-info-type"]}>
                 <p className={styles["basic-info-type-label"]}>type:</p>
-                <p className={styles["basic-info-type-name"]}>{type}</p>
+                <p className={styles["basic-info-type-name"]}>{species || type}</p>
             </div>
         </div>
     );

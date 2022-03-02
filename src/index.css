@@ -3,6 +3,7 @@
     --dark-gray: #666;
     --light-gray: #bbb;
     --dark-gray-rgb: 102, 102, 102;
+    --card-size: 300px;
 }
 
 body {

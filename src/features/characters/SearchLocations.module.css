@@ -1,0 +1,26 @@
+.search-locations-wrapper {
+    display: grid;
+    position: relative;
+}
+
+.search-locations-wrapper::after {
+    content: "🔍";
+    right: 0.5em;
+    top: 20%;
+    position: absolute;
+}
+
+.search-locations-textbox {
+    display: block;
+    padding: 0.6em;
+    border-radius: 0.1em;
+    border: none;
+    font-size: 1em;
+    min-width: 20em;
+    max-width: 30em;
+    box-shadow: 1px 1px 1px whitesmoke inset, 2px 2px 2px lightgray;
+}
+
+.search-locations-textbox:focus {
+    outline: 1px solid gray;
+}

@@ -1,48 +1,117 @@
-export const getPageOfCharacters = `
-  query getPageOfCharacters($page: Int) {
-    characters(page: $page) {
-      info {
-        count
-      }
-      results {
-        id
-        name
-        image
-        status
-        species
-      }
-    }
+const PagerSubFieldSelection = `
+  count
+  pages
+`;
+
+const LocationSubFieldSelection = `
+  id
+  name
+  type
+  dimension
+`;
+
+const EpisodeSubfieldSelection = `
+  id
+  name
+  air_date
+  episode
+`;
+
+const CharacterSubfieldSelecion = `
+  id
+  name
+  type
+  image
+  status
+  species
+  created
+`;
+
+const FullCharacterSubfieldSelecion = `
+  ${CharacterSubfieldSelecion}
+  origin {
+    ${LocationSubFieldSelection}
+  }
+  location {
+    ${LocationSubFieldSelection}
+  }
+  episode {
+    ${EpisodeSubfieldSelection}
   }
 `;
 
 export const getCharacter = `
   query getCharacter($id: ID!) {
     character(id: $id) {
-      id
-      name
-      status
-      species
-      type
-      origin {
-        id
-        name
-        type
-        dimension
+      ${FullCharacterSubfieldSelecion}
+    }
+  }
+`;
+
+export const getPageOfCharacters = `
+  query getPageOfCharacters($page: Int) {
+    characters(page: $page) {
+      info {
+        ${PagerSubFieldSelection}
       }
-      location {
-        id
-        name
-        type
-        dimension
+      results {
+        ${FullCharacterSubfieldSelecion}
       }
-      image
-      episode {
-        id
-        name
-        air_date
-        episode
+    }
+  }
+`;
+
+export const searchCharacters = `
+  query getPageOfCharacters($page: Int, $filter: FilterCharacter) {
+    characters(page: $page, filter: $filter) {
+      info {
+        ${PagerSubFieldSelection}
       }
-      created
+      results {
+        ${FullCharacterSubfieldSelecion}
+      }
+    }
+  }
+`;
+
+export const searchLocations = `
+  query getPageOfCharacters($page: Int, $filter: FilterLocation) {
+    locations(page: $page, filter: $filter) {
+      info {
+        ${PagerSubFieldSelection}
+      }
+      results {
+        ${LocationSubFieldSelection}
+        residents {
+          ${CharacterSubfieldSelecion}
+        }
+      }
+    }
+  }
+`;
+
+export const searchEpisodes = `
+  query getPageOfCharacters($page: Int, $filter: FilterEpisode) {
+    episodes(page: $page, filter: $filter) {
+      info {
+        ${PagerSubFieldSelection}
+      }
+      results {
+        ${EpisodeSubfieldSelection}
+      }
+    }
+  }
+`;
+
+export const getLocations = `
+  query getLocations($page: Int) {
+    locations(page: $page) {
+      info {
+        ${PagerSubFieldSelection}
+      }
+      results {
+        ${LocationSubFieldSelection}
+      }
     }
   }
 `;

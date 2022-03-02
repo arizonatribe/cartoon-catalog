@@ -1,0 +1,25 @@
+.autocomplete-items {
+    z-index: 10;
+    margin: 0;
+    opacity: 0.9;
+    background-color: white;
+    padding: 0;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.autocomplete-items .item-active {
+    list-style: none;
+    font-size: 0.8em;
+    color: black;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px gray;
+    padding: 0.2em 0.6em;
+    text-transform: lowercase;
+}
+
+.autocomplete-items .item-highlighted,
+.autocomplete-items .item-active:hover {
+    background-color: gray;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}

@@ -26,7 +26,8 @@ export function Card(props: Props) {
             <CardBasicInfo
               inlay
               name={name}
-              type={type || species}
+              type={type}
+              species={species}
             />
             <CardStatus
               hasTooltip

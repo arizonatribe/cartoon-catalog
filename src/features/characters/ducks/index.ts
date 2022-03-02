@@ -1,5 +1,5 @@
+export * from "./slice";
 export * from "./types";
 export * from "./helpers";
-export * from "./queries";
-export * from "./api";
-export * from "./slice";
+export * as api from "./api";
+export * as queries from "./queries";

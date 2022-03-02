@@ -17,7 +17,7 @@ export function CardDetail(props: Props) {
     return (
         <div className={styles.detail}>
             <img className={styles["detail-image"]} src={image} alt={name} />
-            <CardBasicInfo name={name} type={type || species} />
+            <CardBasicInfo name={name} type={type} species={species} />
             <CardStatus status={status} />
             <CardLocation location={location} />
             <CardEpisode episodes={episode} />

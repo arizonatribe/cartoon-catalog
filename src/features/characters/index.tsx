@@ -1,10 +1,14 @@
 export * as ducks from "./ducks";
+export * from "./AutoCompleteList";
 export * from "./Card";
-export * from "./CardDetail";
 export * from "./CardBasicInfo";
 export * from "./CardStatus";
 export * from "./CardLocation";
 export * from "./CardEpisode";
-export * from "./Catalog";
 export * from "./Pager";
+export * from "./Catalog";
 export * from "./Catalog.container";
+export * from "./CardDetail";
+export * from "./CardDetail.container";
+export * from "./SearchLocations";
+export * from "./SearchLocations.container";
