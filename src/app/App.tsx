@@ -10,7 +10,7 @@ export function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<CatalogContainer />} />
-                    <Route path="/catalog" element={<CatalogContainer />} />
+                    <Route path="/cartoon-catalog" element={<CatalogContainer />} />
                 </Routes>
             </BrowserRouter>
         </Layout>
