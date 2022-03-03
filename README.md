@@ -2,6 +2,8 @@
 
 A React/Redux based application which demonstrates a styled card layout with search filtering.
 
+[Demo](https://arizonatribe.github.io/cartoon-catalog/)
+
 ## Dependencies
 
 * [Node](https://nodejs.org/en/)
