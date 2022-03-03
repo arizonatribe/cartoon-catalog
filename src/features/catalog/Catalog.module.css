@@ -1,9 +1,12 @@
 .catalog {
-    background-color: white;
     display: grid;
     gap: 0.5em;
-    grid-template-rows: 1fr auto;
     grid-template-columns: repeat(auto-fill, var(--card-size));
     align-items: start;
+    align-content: start;
+    justify-content: space-between;
     min-height: 100vh;
+    padding: 0.8em;
+    border-top: 1px solid lightgray;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABxJREFUGFdjvH379n9VVVVGBiiAMzAEYCoxVAAAYX0IBSxdH+cAAAAASUVORK5CYII=) repeat;
 }

@@ -1,9 +1,7 @@
 .search-locations-wrapper {
     display: grid;
     padding: 1em 0;
-    min-width: 30em;
-    max-width: 30em;
-    justify-content: center;
+    justify-content: stretch;
 }
 
 .search-with-button {
@@ -15,7 +13,7 @@
     border-top: 1px solid whitesmoke;
     border-radius: 0.1em;
     box-shadow: 1px 1px 1px whitesmoke inset, 2px 2px 2px lightgray;
-    width: 100%;
+    min-width: 50vw;
 }
 
 .search-button {

@@ -1,7 +1,7 @@
 .layout {
     display: grid;
     grid-template-areas: "header" "main";
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 8em 1fr;
     grid-template-columns: 1fr;
     min-height: 100vh;
 }
@@ -16,7 +16,7 @@
 .main {
     display: grid;
     grid-area: main;
-    background-color: #282c34;
+    background-color: white;
     height: 100%;
 }
 
