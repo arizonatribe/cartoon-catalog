@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/cartoon-character-catalog/static/css/main.c01734eb.css",
-    "main.js": "/cartoon-character-catalog/static/js/main.0bc4b021.js",
-    "static/js/787.cdf4dc8b.chunk.js": "/cartoon-character-catalog/static/js/787.cdf4dc8b.chunk.js",
-    "static/media/logo.svg": "/cartoon-character-catalog/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
-    "index.html": "/cartoon-character-catalog/index.html",
-    "main.c01734eb.css.map": "/cartoon-character-catalog/static/css/main.c01734eb.css.map",
-    "main.0bc4b021.js.map": "/cartoon-character-catalog/static/js/main.0bc4b021.js.map",
-    "787.cdf4dc8b.chunk.js.map": "/cartoon-character-catalog/static/js/787.cdf4dc8b.chunk.js.map"
+    "main.css": "/cartoon-catalog/static/css/main.4eae6a51.css",
+    "main.js": "/cartoon-catalog/static/js/main.772014a6.js",
+    "static/js/787.adfd42aa.chunk.js": "/cartoon-catalog/static/js/787.adfd42aa.chunk.js",
+    "index.html": "/cartoon-catalog/index.html",
+    "main.4eae6a51.css.map": "/cartoon-catalog/static/css/main.4eae6a51.css.map",
+    "main.772014a6.js.map": "/cartoon-catalog/static/js/main.772014a6.js.map",
+    "787.adfd42aa.chunk.js.map": "/cartoon-catalog/static/js/787.adfd42aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c01734eb.css",
-    "static/js/main.0bc4b021.js"
+    "static/css/main.4eae6a51.css",
+    "static/js/main.772014a6.js"
   ]
 }
