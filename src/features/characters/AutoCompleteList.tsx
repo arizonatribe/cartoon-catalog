@@ -15,10 +15,7 @@ export function AutoCompleteList(props: Props) {
     return (
       <ul
           className={styles["autocomplete-items"]}
-          onClick={(e) => {
-              // @ts-ignore
-              onClick(e.target.innerText);
-          }}
+          onClick={(e: any) => onClick(e.target.innerText)}
       >
           {items.map((item, i) => (
               <li

@@ -1,3 +1,7 @@
+export interface AnyObject {
+    [key: string]: any | AnyObject
+}
+
 export interface Pager {
     count: number
     pages: number
@@ -56,4 +60,9 @@ export interface Character {
 
 export interface CharacterFormatted extends Character {
     statusIcon: "💀" | "❓" | "🧬"
+}
+
+export interface Note {
+    characterId: string
+    text: string
 }

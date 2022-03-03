@@ -1,12 +1,19 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-
-import { ducks as counterDucks } from "../features/counter";
-import { ducks as charactersDucks } from "../features/characters";
+import {
+    NotesSlice,
+    DetailSlice,
+    SearchSlice,
+    LocationsSlice,
+    CharactersSlice
+} from "../features/characters/ducks";
 
 export const store = configureStore({
     reducer: {
-        [counterDucks.name]: counterDucks.slice.reducer,
-        [charactersDucks.name]: charactersDucks.slice.reducer
+        [NotesSlice.name]: NotesSlice.reducer,
+        [DetailSlice.name]: DetailSlice.reducer,
+        [SearchSlice.name]: SearchSlice.reducer,
+        [LocationsSlice.name]: LocationsSlice.reducer,
+        [CharactersSlice.name]: CharactersSlice.reducer
     }
 });
 

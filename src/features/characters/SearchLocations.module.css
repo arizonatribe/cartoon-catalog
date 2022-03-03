@@ -1,26 +1,47 @@
 .search-locations-wrapper {
     display: grid;
-    position: relative;
+    padding: 1em 0;
+    min-width: 30em;
+    max-width: 30em;
+    justify-content: center;
 }
 
-.search-locations-wrapper::after {
-    content: "🔍";
-    right: 0.5em;
-    top: 20%;
-    position: absolute;
+.search-with-button {
+    display: grid;
+    grid-template-areas: "search-box search-button";
+    grid-template-columns: 1fr auto;
+    border: 1px solid transparent;
+    border-left: 1px solid whitesmoke;
+    border-top: 1px solid whitesmoke;
+    border-radius: 0.1em;
+    box-shadow: 1px 1px 1px whitesmoke inset, 2px 2px 2px lightgray;
+    width: 100%;
+}
+
+.search-button {
+    font-size: 1em;
+    cursor: pointer;
+    grid-area: search-button;
+    background-color: inherit;
+    border-radius: 0.1.em;
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: whitesmoke;
 }
 
 .search-locations-textbox {
     display: block;
+    grid-area: search-box;
     padding: 0.6em;
-    border-radius: 0.1em;
-    border: none;
-    font-size: 1em;
-    min-width: 20em;
-    max-width: 30em;
-    box-shadow: 1px 1px 1px whitesmoke inset, 2px 2px 2px lightgray;
+    border: 0;
+    border-right: 1px solid lightgray;
+    outline: none;
+    color: gray;
+    font-size: 0.8em;
 }
 
 .search-locations-textbox:focus {
-    outline: 1px solid gray;
+    outline: none;
 }

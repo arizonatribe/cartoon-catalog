@@ -1,0 +1,35 @@
+.note-detail {
+    display: grid;
+    justify-items: stretch;
+    grid-area: note-detail;
+    grid-template-rows: repeat(2, auto);
+    width: 100%;
+    padding: 0.5em 0;
+}
+
+.note-detail form {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.note-detail label {
+    display: block;
+    padding: 0.2em 0;
+}
+
+.note-textarea {
+    display: grid;
+    color: gray;
+    border-radius: 0.2em;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px whitesmoke inset;
+    width: 100%;
+    padding: 0.2em;
+    align-content: center;
+    justify-items: center;
+    overflow-y: auto;
+}
+
+.note-textarea:focus {
+    outline: none;
+}

@@ -48,6 +48,14 @@ export const getCharacter = `
   }
 `;
 
+export const getCharactersByIds = `
+  query getCharacters($ids: [ID!]!) {
+    charactersByIds(ids: $ids) {
+      ${FullCharacterSubfieldSelecion}
+    }
+  }
+`;
+
 export const getPageOfCharacters = `
   query getPageOfCharacters($page: Int) {
     characters(page: $page) {
@@ -68,7 +76,7 @@ export const searchCharacters = `
         ${PagerSubFieldSelection}
       }
       results {
-        ${FullCharacterSubfieldSelecion}
+        id
       }
     }
   }
@@ -81,9 +89,8 @@ export const searchLocations = `
         ${PagerSubFieldSelection}
       }
       results {
-        ${LocationSubFieldSelection}
         residents {
-          ${CharacterSubfieldSelecion}
+          id
         }
       }
     }
@@ -111,6 +118,29 @@ export const getLocations = `
       }
       results {
         ${LocationSubFieldSelection}
+      }
+    }
+  }
+`;
+
+export const getAllCharacterIds = `
+  query getAllCharacters($page: Int) {
+    characters(page: $page) {
+      info {
+        ${PagerSubFieldSelection}
+      }
+      results {
+        id
+      }
+    }
+  }
+`;
+
+export const getCharactersCount = `
+  query {
+    characters {
+      info {
+        ${PagerSubFieldSelection}
       }
     }
   }

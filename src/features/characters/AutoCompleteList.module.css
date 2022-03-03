@@ -5,11 +5,13 @@
     background-color: white;
     padding: 0;
     box-shadow: 1px 1px 1px gray;
+    width: 100%;
+    max-width: 30em;
 }
 
 .autocomplete-items .item-active {
     list-style: none;
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: black;
     cursor: pointer;
     text-shadow: 1px 1px 1px gray;

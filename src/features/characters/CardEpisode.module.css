@@ -1,15 +1,28 @@
+.episodes-wrapper {
+    display: grid;
+    grid-area: episodes;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "." "episode-content";
+    width: 100%;
+}
+.episodes-wrapper label {
+    display: block;
+    padding: 0.2em 0;
+}
+
+
 .episodes {
     display: grid;
     padding: 0.5em 0.4em;
-    grid-area: episodes;
-    width: 100%;
+    grid-area: episode-content;
     justify-content: start;
     justify-items: start;
     background-color: white;
     border-radius: 0.2em;
     box-shadow: 1px 1px 1px lightgray inset, 1px 1px 1px white;
-    max-height: 6em;
     overflow-y: auto;
+    width: 100%;
+    max-height: 6em;
 }
 
 .episode-wrapper {

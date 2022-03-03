@@ -25,12 +25,13 @@
     display: grid;
     grid-area: card-detail;
     grid-template-columns: auto 1em 1fr;
-    grid-template-rows: repeat(3, auto) 1fr;
+    grid-template-rows: repeat(3, auto) 1fr auto;
     grid-template-areas:
         "detail-image . basic-info"
         "detail-image . card-status"
         "location location location"
-        "episodes episodes episodes";
+        "episodes episodes episodes"
+        "note-detail note-detail note-detail";
     z-index: 1;
     background-color: whitesmoke;
     border-radius: 0.8em;

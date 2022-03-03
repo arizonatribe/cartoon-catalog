@@ -5,6 +5,7 @@ export * from "./CardBasicInfo";
 export * from "./CardStatus";
 export * from "./CardLocation";
 export * from "./CardEpisode";
+export * from "./NoteDetail";
 export * from "./Pager";
 export * from "./Catalog";
 export * from "./Catalog.container";

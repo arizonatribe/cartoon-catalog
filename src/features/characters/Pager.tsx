@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useCallback } from "react";
 
 import { useAppDispatch } from "../../app/hooks";
-import { nextPageOfCharacters } from "./ducks";
+import { SearchSlice } from "./ducks";
 import styles from "./Pager.module.css";
 
 export function Pager() {
@@ -18,7 +18,7 @@ export function Pager() {
             new IntersectionObserver(characterSet => {
                 characterSet
                     .filter(charSet => charSet.intersectionRatio)
-                    .forEach(() => dispatch(nextPageOfCharacters()));
+                    .forEach(() => dispatch(SearchSlice.nextPageOfCharacters()));
             }).observe(container);
         }, [dispatch]
     );

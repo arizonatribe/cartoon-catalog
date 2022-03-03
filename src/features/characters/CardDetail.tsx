@@ -9,10 +9,14 @@ import styles from "./CardDetail.module.css";
 
 interface Props {
     character: Character
+    children?: React.ReactNode
 }
 
 export function CardDetail(props: Props) {
-    const { character: { name, type, status, location, episode, species, image } } = props;
+    const {
+        children,
+        character: { name, type, status, location, episode, species, image }
+    } = props;
 
     return (
         <div className={styles.detail}>
@@ -21,6 +25,7 @@ export function CardDetail(props: Props) {
             <CardStatus status={status} />
             <CardLocation location={location} />
             <CardEpisode episodes={episode} />
+            <>{children ?? null}</>
         </div>
     );
 }
