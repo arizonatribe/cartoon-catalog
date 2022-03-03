@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Pager } from "./Pager";
 import { Catalog } from "./Catalog";
 import { CardDetailContainer }  from "./CardDetail.container";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { SearchSlice, DetailSlice, Character, CharactersSlice } from "./ducks";
+import { SearchSlice, DetailSlice, Character } from "./ducks";
 
 export function CatalogContainer() {
     const dispatch = useAppDispatch();

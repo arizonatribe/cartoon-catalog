@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Layout } from "../features/layout";
-import { Instructions } from "./Instructions";
-import { CatalogContainer, SearchLocationsContainer } from "../features/characters";
+import { CatalogContainer, SearchLocationsContainer } from "../features/catalog";
 
 export function App() {
     return (
@@ -12,7 +11,6 @@ export function App() {
                 <Routes>
                     <Route path="/" element={<CatalogContainer />} />
                     <Route path="/catalog" element={<CatalogContainer />} />
-                    <Route path="/instructions" element={<Instructions />} />
                 </Routes>
             </BrowserRouter>
         </Layout>

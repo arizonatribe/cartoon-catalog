@@ -5,7 +5,7 @@ import {
     SearchSlice,
     LocationsSlice,
     CharactersSlice
-} from "../features/characters/ducks";
+} from "../features/catalog/ducks";
 
 export const store = configureStore({
     reducer: {
