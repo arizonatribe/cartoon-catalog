@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit";
 
-import { fetchLocationsByFilter, fetchCharactersByPage, fetchCharactersByFilter } from "./characters.api"
-import { addCharacters, selectCharacters, selectCharactersByIds , getCharacters } from "./characters.slice";
+import { fetchLocationsByFilter, fetchCharactersByFilter } from "./characters.api"
+import { selectCharacters, getCharacters } from "./characters.slice";
 import { Character, FilterCharacter, FilterLocation } from "./types";
 import { RootState, AppThunk, AppDispatch } from "../../../app/store";
 
@@ -13,6 +13,7 @@ interface SearchItemMap {
 
 export interface State {
     status: "idle" | "loading" | "failed"
+    kind: "location" | "character" | ""
     page: number
     searchText: string
     matches: SearchItemMap
@@ -23,22 +24,23 @@ const initialState: State = {
     status: "idle",
     searchText: "",
     page: 0,
+    kind: "",
     filter: {},
     matches: {}
 }
 
 export function searchCharactersByLocation(filter: FilterLocation): AppThunk {
     return async function searchCharactersByLocationThunk(dispatch: AppDispatch) {
-        dispatch(setSearchFilter(filter));
+        dispatch(setSearchFilter({ filter, kind: "location" }));
         const characterIds = await fetchLocationsByFilter(filter, 1);
         dispatch(setSearchMatches(characterIds));
         dispatch(getCharacters(characterIds));
     };
 }
 
-export function searchCharacters(filter: FilterLocation): AppThunk {
+export function searchCharacters(filter: FilterCharacter): AppThunk {
     return async function searchCharactersByLocationThunk(dispatch: AppDispatch) {
-        dispatch(setSearchFilter(filter));
+        dispatch(setSearchFilter({ filter, kind: "character" }));
         const characterIds = await fetchCharactersByFilter(filter, 1);
         dispatch(setSearchMatches(characterIds));
         dispatch(getCharacters(characterIds));
@@ -51,13 +53,18 @@ export function nextPageOfCharacters(): AppThunk {
         getState: () => RootState
     ) {
         const currentPage = selectCurrentPage(getState());
-        const filter = selectSearchFilter(getState())
 
         dispatch(nextPage());
 
-        const characterIds = await fetchLocationsByFilter(filter, currentPage + 1);
-        dispatch(setSearchMatches(characterIds));
+        const filter = selectSearchFilter(getState());
+        const kind = selectSearchFilterKind(getState());
+
+        const characterIds = (kind === "location")
+            ? await fetchLocationsByFilter(filter, currentPage + 1)
+            : await fetchCharactersByFilter(filter, currentPage + 1);
+
         dispatch(getCharacters(characterIds));
+        dispatch(appendSearchMatches(characterIds));
     };
 }
 
@@ -65,17 +72,30 @@ export const slice = createSlice({
     name,
     initialState,
     reducers: {
-        setSearchFilter(state: State, action: PayloadAction<FilterLocation|FilterCharacter>) {
-            state.filter = action.payload;
+        setSearchFilter(
+            state: State,
+            action: PayloadAction<{
+                kind: "location" | "character" | "",
+                filter: FilterLocation|FilterCharacter
+            }>
+        ) {
+            state.filter = action.payload.filter;
+            state.kind = action.payload.kind;
         },
         clearSearchFilter(state: State) {
             state.filter = {};
+            state.kind = "";
         },
         nextPage(state: State) {
             state.page += 1;
         },
         prevPage(state: State) {
             state.page -= 1;
+        },
+        appendSearchMatches(state: State, action: PayloadAction<string[]>) {
+            action.payload.forEach(characterId => {
+                state.matches[characterId] = characterId;
+            });
         },
         setSearchMatches(state: State, action: PayloadAction<string[]>) {
             state.matches = {};
@@ -86,7 +106,7 @@ export const slice = createSlice({
     }
 });
 
-export const { nextPage, prevPage, clearSearchFilter, setSearchFilter, setSearchMatches } = slice.actions;
+export const { nextPage, prevPage, clearSearchFilter, setSearchFilter, setSearchMatches, appendSearchMatches } = slice.actions;
 export const { reducer } = slice;
 
 export const selectMatchIds = (state: RootState) => Object.keys(state[name].matches);
@@ -99,6 +119,7 @@ export const selectSearchMatches = createSelector(
             .map(cid => characters[cid])
 );
 export const selectCurrentPage = (state: RootState) => state[name].page;
+export const selectSearchFilterKind = (state: RootState) => state[name].kind;
 export const selectSearchFilter = (state: RootState) => state[name].filter;
 export const selectSearchText = createSelector(
     selectSearchFilter,

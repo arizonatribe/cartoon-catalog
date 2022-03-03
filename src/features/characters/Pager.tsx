@@ -8,6 +8,10 @@ export function Pager() {
     const ref = useRef(null);
     const dispatch = useAppDispatch();
 
+    useEffect(() => {
+        dispatch(SearchSlice.nextPageOfCharacters());
+    }, [dispatch]);
+
     /*
      * Using the native IntersectionObserver API,
      * we can determine if we're at the bottom of the page,
