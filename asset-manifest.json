@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cartoon-character-catalog/static/css/main.c01734eb.css",
+    "main.js": "/cartoon-character-catalog/static/js/main.0bc4b021.js",
+    "static/js/787.cdf4dc8b.chunk.js": "/cartoon-character-catalog/static/js/787.cdf4dc8b.chunk.js",
+    "static/media/logo.svg": "/cartoon-character-catalog/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
+    "index.html": "/cartoon-character-catalog/index.html",
+    "main.c01734eb.css.map": "/cartoon-character-catalog/static/css/main.c01734eb.css.map",
+    "main.0bc4b021.js.map": "/cartoon-character-catalog/static/js/main.0bc4b021.js.map",
+    "787.cdf4dc8b.chunk.js.map": "/cartoon-character-catalog/static/js/787.cdf4dc8b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c01734eb.css",
+    "static/js/main.0bc4b021.js"
+  ]
+}
