@@ -1,7 +1,8 @@
 {
-  "name": "@arizonatribe/cartoon-characters",
-  "version": "0.1.0",
+  "name": "@arizonatribe/cartoon-character-catalog",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "https://arizonatribe.github.io/cartoon-character-catalog",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -25,6 +26,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -47,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
