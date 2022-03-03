@@ -1,8 +1,8 @@
 {
-  "name": "@arizonatribe/cartoon-character-catalog",
+  "name": "@arizonatribe/cartoon-catalog",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://arizonatribe.github.io/cartoon-character-catalog",
+  "homepage": "https://arizonatribe.github.io/cartoon-catalog",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.14.1",
