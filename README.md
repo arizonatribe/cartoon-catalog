@@ -30,12 +30,13 @@ As this project is a simple exercise, it is important to demonstrate several qua
 #### Idiomatic
 
 Can we have the benefits of the modern web yet stay relatively close to native HTML, CSS and JavaScript?
-    * Using native CSS styling carved up into small chunks named after the component in which they are being used
-    * Mixing CSS class names dynamically - based on user interaction - by importing those CSS files as modules (thanks to the mix of webpack loaders in place) and composing them in a JSON-like syntax via the [classnames](https://www.npmjs.com/package/classnames) tool.
-    * React offers a light abstraction layer over the DOM APIs (light enough that it doesn't disable your intuitions into how those underlying APIs function)
-    * There are no non-native HTML bindings to learn and interpolating is done simply through JavaScript inside of curly brace `{}` placeholders
-    * React makes it easier to write high-performance JavaScript, and is more true to the Lisp/Scheme/SmallTalk design patterns which birthed JavaScript
-    * React allows for an "HTML-like" syntax with __JSX__
+
+* Using native CSS styling carved up into small chunks named after the component in which they are being used
+* Mixing CSS class names dynamically - based on user interaction - by importing those CSS files as modules (thanks to the mix of webpack loaders in place) and composing them in a JSON-like syntax via the [classnames](https://www.npmjs.com/package/classnames) tool.
+* React offers a light abstraction layer over the DOM APIs (light enough that it doesn't disable your intuitions into how those underlying APIs function)
+* There are no non-native HTML bindings to learn and interpolating is done simply through JavaScript inside of curly brace `{}` placeholders
+* React makes it easier to write high-performance JavaScript, and is more true to the Lisp/Scheme/SmallTalk design patterns which birthed JavaScript
+* React allows for an "HTML-like" syntax with __JSX__
 
 #### Light Dependency Graph
 
