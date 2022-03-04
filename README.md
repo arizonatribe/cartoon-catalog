@@ -42,10 +42,10 @@ Can we have the benefits of the modern web yet stay relatively close to native H
 
 The project itself is built with only the follow production dependencies (ie, the third-party dependencies which are bundled into the deployed app):
 
-* [React](https://www.npmsjs.com/package/react) & [React-DOM](https://www.npmsjs.com/package/react-dom)
-* [React-Redux](https://www.npmsjs.com/package/react-redux) & [Redux Toolkit](https://www.npmsjs.com/package/@reduxjs/toolkit)
-* [React-Router](https://www.npmsjs.com/package/react-router) & [React Router DOM](https://www.npmsjs.com/package/react-router-dom)
-* [Classnames](https://www.npmsjs.com/package/classnames)
+* [React](https://www.npmjs.com/package/react) & [React-DOM](https://www.npmjs.com/package/react-dom)
+* [React-Redux](https://www.npmjs.com/package/react-redux) & [Redux Toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
+* [React-Router](https://www.npmjs.com/package/react-router) & [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+* [Classnames](https://www.npmjs.com/package/classnames)
 
 All these tools share these qualities in common:
 
@@ -75,7 +75,7 @@ There are several great resources to help explore these concepts
 * [JavaScript At Scale](https://www.amazon.com/JavaScript-at-Scale-Adam-Boduch/dp/1785282158)
 * [Async and Performance](https://www.amazon.com/You-Dont-Know-JS-Performance/dp/1491904224)
 
-Additionally, you can leverage [benchmark-js](https://www.npmsjs.com/package/benchmark-js) to test your intuitions against reality. I went down that road a few years ago trying to explore a couple of micro-topics ("is it always bad to create variables in loops?" and "is `class` in JavaScript slower than object composition?"[[1]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/classMemoryTest.js)[[2]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/tests/class.js)). Similarly there are heap snapshots and memory profiling tools built into the browser developer tools.
+Additionally, you can leverage [benchmark-js](https://www.npmjs.com/package/benchmark-js) to test your intuitions against reality. I went down that road a few years ago trying to explore a couple of micro-topics ("is it always bad to create variables in loops?" and "is `class` in JavaScript slower than object composition?"[[1]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/classMemoryTest.js)[[2]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/tests/class.js)). Similarly there are heap snapshots and memory profiling tools built into the browser developer tools.
 
 To fine-tune this small application for performance, the following steps were taken:
 
