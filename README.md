@@ -78,13 +78,14 @@ There are several great resources to help explore these concepts
 Additionally, you can leverage [benchmark-js](https://www.npmsjs.com/package/benchmark-js) to test your intuitions against reality. I went down that road a few years ago trying to explore a couple of micro-topics ("is it always bad to create variables in loops?" and "is `class` in JavaScript slower than object composition?"[[1]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/classMemoryTest.js)[[2]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/tests/class.js)). Similarly there are heap snapshots and memory profiling tools built into the browser developer tools.
 
 To fine-tune this small application for performance, the following steps were taken:
-    * Using memoization for Redux store selectors
-    * Limiting the creation of functions inside the React component render function (to only those functions leveraging local variables or wrapped in "hooks")
-    * Reducing the amount of JavaScript being written which can be accomplished using CSS 
-    * The GraphQL queries sent to the external API names only search match IDs and counts, meaning very light payloads sent back
-    * Caching is in place and the Redux store is structured to optimistically update and not waste calls to the external RESTful/GraphQL APIs if not needed
-    * Prefetching items to send into the auto-completion textbox
-    * The more the app is used, the deeper the cache gets and the quicker each ensuing operation becomes
+
+* Using memoization for Redux store selectors
+* Limiting the creation of functions inside the React component render function (to only those functions leveraging local variables or wrapped in "hooks")
+* Reducing the amount of JavaScript being written which can be accomplished using CSS 
+* The GraphQL queries sent to the external API names only search match IDs and counts, meaning very light payloads sent back
+* Caching is in place and the Redux store is structured to optimistically update and not waste calls to the external RESTful/GraphQL APIs if not needed
+* Prefetching items to send into the auto-completion textbox
+* The more the app is used, the deeper the cache gets and the quicker each ensuing operation becomes
 
 ## Running it Locally
 
