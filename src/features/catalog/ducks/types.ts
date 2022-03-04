@@ -1,5 +1,7 @@
 export type FetchStatus = "loading" | "idle" | "failed";
 
+export type SearchType = "🌍" | "👤";
+
 export enum KeyCodes {
     up = 38,
     down = 40,

@@ -31,6 +31,8 @@ Filter cartoon characters using the search box. Once you begin typing, you'll se
 
 Any one character will be visible in a card on the main page and you can click their picture to view additional details (or to add any notes).
 
+Note: you can search by location or search by character name by toggling the search type button from 🌍 to 👤
+
 ## Mock Environment
 
 This exercise makes use of the following two API URLs which are free to use (but not abuse):

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 import { SearchButton } from "./SearchButton";
+import { SearchTypeButton } from "./SearchTypeButton";
 import { AutoCompleteList } from "./AutoCompleteList";
 import { KeyCodes, Item, filterResults } from "./ducks";
 import styles from "./SearchWithAutoComplete.module.css";
 
 interface Props {
     text: string
+    searchType: string
+    toggleSearchType(): void
     isLoading?: boolean
     suggestions: Item[]
     handleSearch(search: string): void
 }
 
 export function SearchWithAutoComplete(props: Props) {
-    const { suggestions, isLoading, text, handleSearch } = props;
+    const { suggestions, searchType, toggleSearchType, isLoading, text, handleSearch } = props;
 
     const [autocompleteItems, setAutocompleteItems] = useState<string[]>([]);
     const [suggestionsFocused, setAutoCompleteFocused] = useState<boolean>(false);
@@ -80,6 +83,8 @@ export function SearchWithAutoComplete(props: Props) {
             case KeyCodes.down: {
                 if (highlightedItemIndex === -1) {
                     setHighlightedItemIndex(0);
+                    setSelectedItem("");
+                    setAutocompleteItems(filterResults(inputText, suggestions));
                 } else {
                     setHighlightedItemIndex(
                         Math.min(highlightedItemIndex + 1, autocompleteItems.length - 1)
@@ -97,6 +102,9 @@ export function SearchWithAutoComplete(props: Props) {
     return (
         <div className={styles["search-wrapper"]}>
             <div className={styles["search-with-button"]}>
+                <SearchTypeButton onClick={toggleSearchType}>
+                    {searchType}
+                </SearchTypeButton>
                 <input
                   type="text"
                   value={inputText}

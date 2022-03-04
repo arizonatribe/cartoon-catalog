@@ -1,16 +1,23 @@
-.search-button {
+.search-box-button {
     font-size: 1em;
     cursor: pointer;
     display: grid;
     outline: none;
     align-content: center;
     justify-items: center;
-    grid-area: search-button;
     background-color: inherit;
     border-radius: 0.1.em;
     transition: background-color 0.2s ease;
     width: 2.5em;
     height: 2.5em;
+}
+
+.search-button {
+    grid-area: search-button;
+}
+
+.search-type-button {
+    grid-area: search-type-button;
 }
 
 .button-loading {

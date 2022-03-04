@@ -12,5 +12,6 @@ export * from "./Catalog.container";
 export * from "./CardDetail";
 export * from "./CardDetail.container";
 export * from "./SearchButton";
+export * from "./SearchTypeButton";
 export * from "./SearchWithAutoComplete";
 export * from "./SearchWithAutoComplete.container";

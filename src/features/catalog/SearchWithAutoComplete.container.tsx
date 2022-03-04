@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import { FetchStatus, LocationsSlice, SearchSlice, Location, CharactersSlice } from "./ducks";
+import { FetchStatus, SearchType, LocationsSlice, SearchSlice, Character, Location, CharactersSlice } from "./ducks";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { SearchWithAutoComplete } from "./SearchWithAutoComplete";
 
 export function SearchWithAutoCompleteContainer() {
     const dispatch = useAppDispatch();
+    const [searchType, setSearchType] = useState<SearchType>("🌍");
+
     const locations = useAppSelector<Location[]>(LocationsSlice.selectAllLocations);
+    const characters = useAppSelector<Character[]>(CharactersSlice.selectCharactersList);
     const searchText = useAppSelector<string>(SearchSlice.selectSearchText);
+
     const locationsFetchStatus = useAppSelector<FetchStatus>(LocationsSlice.selectLocationsFetchStatus);
     const searchFetchStatus = useAppSelector<FetchStatus>(SearchSlice.selectSearchFetchStatus);
     const charactersFetchStatus = useAppSelector<FetchStatus>(CharactersSlice.selectCharacterFetchStatus);
@@ -17,7 +21,12 @@ export function SearchWithAutoCompleteContainer() {
             ...(name && { name }),
             ...(type && { type })
         };
-        dispatch(SearchSlice.searchCharactersByLocation(filter));
+
+        if (searchType === "🌍") {
+            dispatch(SearchSlice.searchCharactersByLocation(filter));
+        } else {
+            dispatch(SearchSlice.searchCharacters(filter));
+        }
     };
 
     useEffect(() => {
@@ -27,8 +36,10 @@ export function SearchWithAutoCompleteContainer() {
     return (
         <SearchWithAutoComplete
           text={searchText}
+          searchType={searchType}
+          toggleSearchType={() => setSearchType(searchType !== "🌍" ? "🌍": "👤")}
           handleSearch={handleSearch}
-          suggestions={locations}
+          suggestions={searchType === "🌍" ? locations : characters}
           isLoading={[
             locationsFetchStatus,
             searchFetchStatus,

@@ -6,8 +6,8 @@
 
 .search-with-button {
     display: grid;
-    grid-template-areas: "search-box search-button";
-    grid-template-columns: 1fr auto;
+    grid-template-areas: "search-type-button search-box search-button";
+    grid-template-columns: auto 1fr auto;
     border: 1px solid transparent;
     border-left: 1px solid whitesmoke;
     border-top: 1px solid whitesmoke;
@@ -22,6 +22,7 @@
     padding: 0.6em;
     border: 0;
     border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
     outline: none;
     color: gray;
     caret-color: lightgray;

@@ -37,7 +37,7 @@ export function AutoCompleteList(props: Props) {
       >
           {items.map((item, i) => (
               <li
-                key={item}
+                key={`${i}-${item}`}
                 className={cn({
                     [styles["item-active"]]: true,
                     [styles["item-highlighted"]]: selectedIndex === i
