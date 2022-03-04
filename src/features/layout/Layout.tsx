@@ -1,24 +1,28 @@
 import React from "react";
-import "./Layout.styles.css";
+import cn from "classnames";
+import styles from "./Layout.module.css";
 
 interface Props {
+    fixed?: boolean
     children: React.ReactNode
     headerContent?: React.ReactNode
     sideContent?: React.ReactNode
 }
 
 export function Layout(props: Props) {
-    const { children, headerContent, sideContent } = props;
-    const layoutStyles = [
-        "layout",
-        sideContent && "with-sidebar"
-    ].filter(Boolean).join(" ");
+    const { children, fixed, headerContent, sideContent } = props;
+
+    const layoutStyles = cn({
+        [styles.layout]: true,
+        [styles.fixed]: fixed,
+        [styles["with-sidebar"]]: !!sideContent
+    });
 
     return (
         <div className={layoutStyles}>
-            <div className="header">{headerContent || "Welcome!"}</div>
-            {sideContent && <div className="side">{sideContent}</div>}
-            <div className="main">{children}</div>
+            <div className={styles.header}>{headerContent || "Welcome!"}</div>
+            {sideContent && <div className={styles.side}>{sideContent}</div>}
+            <div className={styles.main}>{children}</div>
         </div>
     );
 }

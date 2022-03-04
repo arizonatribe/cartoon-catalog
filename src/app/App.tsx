@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Layout } from "../features/layout";
-import { CatalogContainer, SearchLocationsContainer } from "../features/catalog";
+import { CatalogContainer, SearchWithAutoCompleteContainer } from "../features/catalog";
 
 export function App() {
     return (
-        <Layout headerContent={<SearchLocationsContainer />}>
+        <Layout fixed headerContent={<SearchWithAutoCompleteContainer />}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<CatalogContainer />} />

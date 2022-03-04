@@ -1,3 +1,13 @@
+export type FetchStatus = "loading" | "idle" | "failed";
+
+export enum KeyCodes {
+    up = 38,
+    down = 40,
+    enter = 13,
+    escape = 27,
+    backspace = 8
+}
+
 export interface AnyObject {
     [key: string]: any | AnyObject
 }
@@ -26,10 +36,13 @@ export type FilterEpisode = {
     episode?: string
 }
 
-export type Location = {
-  id: string
+export interface Item extends AnyObject {
   name: string
   type: string
+}
+
+export interface Location extends Item {
+  id: string
   dimension: string
   residents: Character[]
   created: string
@@ -44,12 +57,10 @@ export type Episode = {
   created: string
 }
 
-export interface Character {
+export interface Character extends Item {
   id: string
-  name: string
   status: 'Unknown' | 'Alive' | 'Dead'
   species: string
-  type: string
   gender: string
   origin: Location
   location: Location

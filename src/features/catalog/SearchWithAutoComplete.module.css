@@ -1,4 +1,4 @@
-.search-locations-wrapper {
+.search-wrapper {
     display: grid;
     padding: 1em 0;
     justify-content: stretch;
@@ -16,20 +16,7 @@
     min-width: 50vw;
 }
 
-.search-button {
-    font-size: 1em;
-    cursor: pointer;
-    grid-area: search-button;
-    background-color: inherit;
-    border-radius: 0.1.em;
-    transition: background-color 0.2s ease;
-}
-
-.search-button:hover {
-    background-color: whitesmoke;
-}
-
-.search-locations-textbox {
+.search-textbox {
     display: block;
     grid-area: search-box;
     padding: 0.6em;
@@ -37,9 +24,10 @@
     border-right: 1px solid lightgray;
     outline: none;
     color: gray;
+    caret-color: lightgray;
     font-size: 0.8em;
 }
 
-.search-locations-textbox:focus {
+.search-textbox:focus {
     outline: none;
 }

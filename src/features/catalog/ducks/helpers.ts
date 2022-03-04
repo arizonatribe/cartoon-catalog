@@ -1,4 +1,4 @@
-import { AnyObject, Location } from "./types";
+import { AnyObject, Location, Character, Item } from "./types";
 
 export function getStatusEmoji(status: string = "") {
     return /^dead$/i.test(status)
@@ -8,19 +8,21 @@ export function getStatusEmoji(status: string = "") {
             : "🧬";
 }
 
-export function filterLocations(
+export function filterResults(
     text: string,
-    locations: Location[]
+    results: Item[]
 ): string[] {
     const filterPattern = new RegExp(`${
-        text.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        (text ?? "").toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     }`, "i");
 
-    return locations.filter((location: Location) => (
-        filterPattern.test(location.name)
-        || filterPattern.test(location.type)
-        || filterPattern.test(location.dimension)
-    )).map((location: Location) => location.name);
+    return results.filter((result: Item) => (
+        filterPattern.test(result.name)
+        || filterPattern.test(result.type)
+        || filterPattern.test((result as Location)?.dimension)
+        || filterPattern.test((result as Character)?.status)
+        || filterPattern.test((result as Character)?.species)
+    )).map((result: Item) => result.name);
 }
 
 export function createFullUrl(

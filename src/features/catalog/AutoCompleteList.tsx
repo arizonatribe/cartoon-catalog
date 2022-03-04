@@ -6,16 +6,34 @@ import styles from "./AutoCompleteList.module.css";
 interface Props {
     items: string[]
     selectedIndex?: number
-    onClick(text: string): void
+    onClick?(e: any): void
+    onBlur?(e: any): void
+    onFocus?(e: any): void
+    onMouseEnter?(e: any): void
+    onMouseLeave?(e: any): void
 }
 
 export function AutoCompleteList(props: Props) {
-    const { items, selectedIndex, onClick } = props;
+    const {
+        items,
+        onBlur,
+        onFocus,
+        onClick,
+        onMouseEnter,
+        onMouseLeave,
+        selectedIndex,
+    } = props;
 
     return (
       <ul
           className={styles["autocomplete-items"]}
-          onClick={(e: any) => onClick(e.target.innerText)}
+          { ...{
+              ...(onBlur && { onBlur }),
+              ...(onFocus && { onFocus }),
+              ...(onClick && { onClick }),
+              ...(onMouseEnter && { onMouseEnter }),
+              ...(onMouseLeave && { onMouseLeave }),
+          }}
       >
           {items.map((item, i) => (
               <li

@@ -1,4 +1,5 @@
 .autocomplete-items {
+    display: grid;
     z-index: 10;
     margin: 0;
     opacity: 0.9;
@@ -21,7 +22,5 @@
 
 .autocomplete-items .item-highlighted,
 .autocomplete-items .item-active:hover {
-    background-color: gray;
-    color: white;
-    text-shadow: 1px 1px 1px black;
+    background-color: rgba(211, 249, 255, 0.9);
 }

@@ -1,0 +1,36 @@
+.search-button {
+    font-size: 1em;
+    cursor: pointer;
+    display: grid;
+    outline: none;
+    align-content: center;
+    justify-items: center;
+    grid-area: search-button;
+    background-color: inherit;
+    border-radius: 0.1.em;
+    transition: background-color 0.2s ease;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.button-loading {
+    display: grid;
+    width: 1em;
+    height: 1em;
+    display: grid;
+    border: 0.2em solid transparent;
+    border-top-color: gray;
+    border-radius: 50%;
+    animation: spinner 1s ease infinite;
+}
+
+
+@keyframes spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}

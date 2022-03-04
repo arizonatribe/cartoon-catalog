@@ -5,14 +5,18 @@ import styles from "./Catalog.module.css";
 
 interface Props {
     items: Character[]
+    isLoading?: boolean
     viewDetail(id: string): void
 }
 
 export function Catalog(props: Props) {
-    const { items, viewDetail } = props;
+    const { items, isLoading, viewDetail } = props;
 
     return (
         <div className={styles.catalog}>
+            {items.length === 0 && (
+                <h1>{isLoading ? "loading results..." : "No results"}</h1>
+            )}
             {items.map((item) => (
                 <Card
                   key={item.id}

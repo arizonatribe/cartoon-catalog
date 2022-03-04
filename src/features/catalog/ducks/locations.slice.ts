@@ -54,4 +54,5 @@ export const slice = createSlice({
 
 export const { reducer } = slice;
 
+export const selectLocationsFetchStatus = (state: RootState) => state[name].status;
 export const selectAllLocations = (state: RootState) => state[name].locations;

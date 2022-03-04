@@ -20,19 +20,23 @@ interface CharacterIdMap {
 }
 
 export interface State {
+    status: "idle" | "loading" | "failed"
     ids: CharacterIdMap
     characters: CharacterMap
 }
 
 const initialState: State = {
+    status: "idle",
     ids: {},
     characters: {}
 };
 
 export function cacheAllCharacterIds(): AppThunk {
     return async function cacheAllCharacterIdsThunk(dispatch: AppDispatch) {
+        dispatch(setLoadingStatus("loading"));
         const characterIds = await fetchAllCharacterIds();
         dispatch(cacheCharacterIds(characterIds));
+        dispatch(setLoadingStatus("idle"));
     };
 }
 
@@ -41,6 +45,7 @@ export function getCharacters(ids: string[]): AppThunk {
         dispatch: AppDispatch,
         getState: () => RootState
     ) {
+        dispatch(setLoadingStatus("loading"));
         const characters = selectCharacters(getState());
         const lookupCharacterIds = ids.filter(id => !Object.keys(characters).includes(id));
 
@@ -48,6 +53,7 @@ export function getCharacters(ids: string[]): AppThunk {
             const characters = await fetchCharactersByIds(lookupCharacterIds);
             dispatch(addCharacters(characters));
         }
+        dispatch(setLoadingStatus("idle"));
     };
 }
 
@@ -55,6 +61,9 @@ export const slice = createSlice({
     name,
     initialState,
     reducers: {
+        setLoadingStatus(state: State, action: PayloadAction<"loading" | "idle" | "failed">) {
+            state.status = action.payload;
+        },
         cacheCharacterIds(state: State, action: PayloadAction<string[]>) {
             state.ids = action.payload.reduce((acc, id) => ({
                 ...acc,
@@ -73,9 +82,10 @@ export const slice = createSlice({
     }
 });
 
-export const { addCharacters, cacheCharacterIds } = slice.actions;
+export const { addCharacters, setLoadingStatus, cacheCharacterIds } = slice.actions;
 export const { reducer } = slice;
 
+export const selectCharacterFetchStatus = (state: RootState) => state[name].status;
 export const selectCharacters = (state: RootState) => state[name].characters;
 export const selectCharacterIds = (state: RootState) => state[name].ids;
 export const selectCharactersList = createSelector(

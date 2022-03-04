@@ -32,18 +32,22 @@ const initialState: State = {
 export function searchCharactersByLocation(filter: FilterLocation): AppThunk {
     return async function searchCharactersByLocationThunk(dispatch: AppDispatch) {
         dispatch(setSearchFilter({ filter, kind: "location" }));
+        dispatch(setLoadingStatus("loading"));
         const characterIds = await fetchLocationsByFilter(filter, 1);
         dispatch(setSearchMatches(characterIds));
         dispatch(getCharacters(characterIds));
+        dispatch(setLoadingStatus("idle"));
     };
 }
 
 export function searchCharacters(filter: FilterCharacter): AppThunk {
     return async function searchCharactersByLocationThunk(dispatch: AppDispatch) {
         dispatch(setSearchFilter({ filter, kind: "character" }));
+        dispatch(setLoadingStatus("loading"));
         const characterIds = await fetchCharactersByFilter(filter, 1);
         dispatch(setSearchMatches(characterIds));
         dispatch(getCharacters(characterIds));
+        dispatch(setLoadingStatus("idle"));
     };
 }
 
@@ -59,12 +63,15 @@ export function nextPageOfCharacters(): AppThunk {
         const filter = selectSearchFilter(getState());
         const kind = selectSearchFilterKind(getState());
 
+        dispatch(setLoadingStatus("loading"));
+
         const characterIds = (kind === "location")
             ? await fetchLocationsByFilter(filter, currentPage + 1)
             : await fetchCharactersByFilter(filter, currentPage + 1);
 
         dispatch(getCharacters(characterIds));
         dispatch(appendSearchMatches(characterIds));
+        dispatch(setLoadingStatus("idle"));
     };
 }
 
@@ -86,6 +93,9 @@ export const slice = createSlice({
             state.filter = {};
             state.kind = "";
         },
+        setLoadingStatus(state: State, action: PayloadAction<"loading" | "idle" | "failed">) {
+            state.status = action.payload;
+        },
         nextPage(state: State) {
             state.page += 1;
         },
@@ -106,9 +116,10 @@ export const slice = createSlice({
     }
 });
 
-export const { nextPage, prevPage, clearSearchFilter, setSearchFilter, setSearchMatches, appendSearchMatches } = slice.actions;
+export const { nextPage, prevPage, setLoadingStatus, clearSearchFilter, setSearchFilter, setSearchMatches, appendSearchMatches } = slice.actions;
 export const { reducer } = slice;
 
+export const selectSearchFetchStatus = (state: RootState) => state[name].status;
 export const selectMatchIds = (state: RootState) => Object.keys(state[name].matches);
 export const selectSearchMatches = createSelector(
     selectCharacters,

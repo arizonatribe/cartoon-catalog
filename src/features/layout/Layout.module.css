@@ -6,6 +6,10 @@
     min-height: 100vh;
 }
 
+.fixed .header {
+    position: fixed;
+}
+
 .with-sidebar {
     grid-template-areas:
         "header header"
@@ -28,6 +32,10 @@
     align-items: center;
     font-size: calc(10px + 2vmin);
     font-weight: 700;
+    width: 100%;
+    max-height: 4.5em;
+    border-bottom: 1px solid lightgray;
+    z-index: 2;
 }
 
 .side {
