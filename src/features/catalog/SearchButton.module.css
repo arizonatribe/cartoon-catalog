@@ -25,7 +25,7 @@
     width: 1em;
     height: 1em;
     display: grid;
-    border: 0.2em solid transparent;
+    border: 0.2em solid lightgray;
     border-top-color: gray;
     border-radius: 50%;
     animation: spinner 1s ease infinite;

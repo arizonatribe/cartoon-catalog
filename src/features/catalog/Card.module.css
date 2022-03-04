@@ -14,9 +14,11 @@
     grid-area: card-image;
     margin: 0;
     padding: 1px;
-    max-width: calc(100% - 6px);
-    max-height: calc(100% - 6px);
-    border: 1px solid lightgray;
+    max-width: calc(var(--card-size) - 2em);
+    max-height: calc(var(--card-size) - 2.2em);
+    min-width: calc(var(--card-size) - 2em);
+    min-height: calc(var(--card-size) - 2.2em);
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABxJREFUGFdjvH379n9VVVVGBiiAMzAEYCoxVAAAYX0IBSxdH+cAAAAASUVORK5CYII=) repeat;
     box-shadow: 1px 1px 5px gray inset;
     border-radius: 0.8em;
 }

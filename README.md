@@ -4,6 +4,8 @@ A React/Redux based application which demonstrates a styled card layout with sea
 
 [Demo](https://arizonatribe.github.io/cartoon-catalog/)
 
+![catalog](media/catalog.png)
+
 ## Usage
 
 Filter cartoon characters using the search box. Once you begin typing, you'll see a list of fictional-ish locations where some of these characters reside.
