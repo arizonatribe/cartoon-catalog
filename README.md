@@ -75,7 +75,7 @@ There are several great resources to help explore these concepts
 * [JavaScript At Scale](https://www.amazon.com/JavaScript-at-Scale-Adam-Boduch/dp/1785282158)
 * [Async and Performance](https://www.amazon.com/You-Dont-Know-JS-Performance/dp/1491904224)
 
-Additionally, you can leverage [benchmark-js](https://www.npmjs.com/package/benchmark-js) to test your intuitions against reality. I went down that road a few years ago trying to explore a couple of micro-topics ("is it always bad to create variables in loops?" and "is `class` in JavaScript slower than object composition?"[[1]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/classMemoryTest.js)[[2]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/tests/class.js)). Similarly there are heap snapshots and memory profiling tools built into the browser developer tools.
+Additionally, you can leverage [benchmark.js](https://www.npmjs.com/package/benchmark) to test your intuitions against reality. I went down that road a few years ago trying to explore a couple of micro-topics ("is it always bad to create variables in loops?" and "is `class` in JavaScript slower than object composition?"[[1]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/classMemoryTest.js)[[2]](https://github.com/arizonatribe/vanillas/blob/master/benchmark/tests/class.js)). Similarly there are heap snapshots and memory profiling tools built into the browser developer tools.
 
 To fine-tune this small application for performance, the following steps were taken:
 
@@ -89,7 +89,7 @@ To fine-tune this small application for performance, the following steps were ta
 
 ## Running it Locally
 
-Although it's hosted on [Github pages](https://arizonatribe.github.io/cartoon-catalog) you can also clone and run this applicaiton locally.
+Although it's hosted on [Github pages](https://arizonatribe.github.io/cartoon-catalog) you can also clone and run this application locally.
 
 After cloning it, just install the local dependencies:
 
