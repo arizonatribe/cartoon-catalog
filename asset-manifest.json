@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cartoon-catalog/static/css/main.666711fd.css",
-    "main.js": "/cartoon-catalog/static/js/main.310824a6.js",
+    "main.js": "/cartoon-catalog/static/js/main.b359bcad.js",
     "static/js/787.adfd42aa.chunk.js": "/cartoon-catalog/static/js/787.adfd42aa.chunk.js",
     "index.html": "/cartoon-catalog/index.html",
     "main.666711fd.css.map": "/cartoon-catalog/static/css/main.666711fd.css.map",
-    "main.310824a6.js.map": "/cartoon-catalog/static/js/main.310824a6.js.map",
+    "main.b359bcad.js.map": "/cartoon-catalog/static/js/main.b359bcad.js.map",
     "787.adfd42aa.chunk.js.map": "/cartoon-catalog/static/js/787.adfd42aa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.666711fd.css",
-    "static/js/main.310824a6.js"
+    "static/js/main.b359bcad.js"
   ]
 }
